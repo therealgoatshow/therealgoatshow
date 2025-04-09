@@ -56,7 +56,7 @@ bot.on('interactionCreate', async (interaction) => {
       await interaction.reply(`Alright ${user}, you're set to grind at level ${level}. Don't disappoint me.`);
     } else {
       delete grindList[user];
-      await interaction.reply(`You're off the list, ${user}. Don't get lazy.`);
+      await interaction.reply(`You’re off the list, ${user}. Don't get lazy.`);
     }
   }
 
@@ -67,7 +67,7 @@ bot.on('interactionCreate', async (interaction) => {
 
     const list = Object.entries(grindList)
       .map(([name, level]) => `${name} → Level ${level}`)
-      .join('\n');
+      .join('\\n');
 
     await interaction.reply(`Here's the grind list:\n${list}`);
   }
@@ -79,16 +79,16 @@ bot.on('messageCreate', (msg) => {
 
   if (!deputies.includes(user)) return;
 
-  if (content.includes("let's go guys") || content.includes("lets go guys")) {
+  if (content.includes("let’s go guys") || content.includes("lets go guys")) {
     isActive = true;
     grindList = {};
-    msg.reply("Yooo LET'S GOOOO! List reset. Time to grind.");
+    msg.reply("Yooo LET’S GOOOO! List reset. Time to grind.");
   }
 
   if (content.includes("bot please die")) {
     isActive = false;
     grindList = {};
-    msg.reply("Okay. I'm out. Dead. Don't wake me up.");
+    msg.reply("Okay. I’m out. Dead. Don't wake me up.");
   }
 });
 
